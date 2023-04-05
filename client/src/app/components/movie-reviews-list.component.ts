@@ -18,14 +18,18 @@ export class MovieReviewsListComponent implements OnInit, OnDestroy {
     private movieSvc: MovieService, private router: Router){}
 
   ngOnInit(): void {
-    this.param$ = this.activatedRoute.params.subscribe(
-      async (params) => {
-       this.movieName = params['query'];
-       console.log(this.movieName);
-       const l = await this.movieSvc.getMovies(this.movieName);
-       this.movies = l.details;   
-     }
-   );
+  //   this.param$ = this.activatedRoute.params.subscribe(
+  //     async (params) => {
+  //      this.movieName = params['movieName'];
+  //      console.log(this.movieName);
+  //      const l = await this.movieSvc.getMovies(this.movieName);
+  //      this.movies = l.details;   
+  //    }
+  //  );
+  this.movieName = this.activatedRoute.snapshot.params['movieName']
+  console.log(this.movieName)
+  this.movieSvc.getMovies(this.movieName)
+  
   }
 
   goHome(){

@@ -66,8 +66,8 @@ public class Review {
 		Review c = new Review();
 		JsonObject t = o.getJsonObject("link");
         String url = t.getString("url");
-		JsonObject y = o.getJsonObject("multimedia");
-        String src = y.getString("src");
+		//JsonObject y = o.getJsonObject("multimedia");
+       // String src = y.getString("src");
         
         c.title = o.getString("display_title");
         c.rating = o.getString("mpaa_rating");
@@ -75,8 +75,15 @@ public class Review {
 		c.headline = o.getString("headline");
 		c.summary = o.getString("summary_short");
 		c.reviewURL = url;
-		c.image = src;
+		c.image = anyImage("multimedia", o);
         return c;
+	}
+
+	private static String anyImage(String fn, JsonObject obj){
+		if (!obj.isNull("multimedia")) {
+			return obj.get("multimedia").asJsonObject().getString("src");
+		}
+		return "noimage";
 	}
 
 	public static List<Review> create(String json) throws IOException {

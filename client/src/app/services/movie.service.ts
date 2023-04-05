@@ -11,14 +11,18 @@ export class MovieService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getMovies(query: string): Promise<any>{
+  getMovies(movieName: string){
     const params = new HttpParams()
-        .set("query", query);
+        .set("query", movieName);
 
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
 
-    return lastValueFrom(this.httpClient
-        .get<Movies[]>(this.API_URI, {params: params, headers: headers}));
+    // return 
+    lastValueFrom(this.httpClient
+        .get<Movies[]>(this.API_URI, {params: params, headers: headers})).then
+        (result=> console.log(result))
+        //http://localhost:8080/api/search?query=fury
+        // );
   }
 
   saveComment(c:Movies) : Promise<any>{

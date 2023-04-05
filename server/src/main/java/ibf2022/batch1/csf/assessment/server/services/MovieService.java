@@ -15,11 +15,11 @@ import ibf2022.batch1.csf.assessment.server.models.Review;
 @Service
 public class MovieService {
 
-	@Value("${csfassessment.nytimes.api.url}")
-	private String nytimesapiUrl;
+	//@Value("${csfassessment.nytimes.api.url}")
+	private String nytimesapiUrl = "https://api.nytimes.com/svc/movies/v2/reviews/search.json";
 
-	@Value("${csfassessment.nytimes.api.key}")
-	private String nytimesPublicApiKey;
+	//@Value("${csfassessment.nytimes.api.key}")
+	private String nytimesPublicApiKey = "dMyagnJvYOHqCGYpOif4F7jYiGFL6nbZ";
 
 	public Optional<List<Review>> searchReviews(String query) {
 		ResponseEntity<String> resp = null;
