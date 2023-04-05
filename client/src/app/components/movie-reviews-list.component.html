@@ -1,0 +1,19 @@
+<div style="display: flex; align-items: center; border: 1px solid black; padding: 5px; max-width: 18%;">
+    <h2>Search Result</h2>
+<button (click)="goHome()">Back</button>
+<div *ngFor="let m of movies">
+    <img src="{{m.multimedia_src}}">
+    <div style="display: flex; align-items: center; border: 1px solid black; padding: 5px; max-width: 18%;">
+        <a href="{{m.display_title}}{{m.mpaa_rating}}"></a>
+        <br>
+        {{m.headline}}
+        <br>
+        {{m.summary_short}}
+        <br>
+        Comments: {{m.comment_count}}
+    </div>
+</div>
+<button (click)="addComment()">Comment</button>
+</div>
+
+

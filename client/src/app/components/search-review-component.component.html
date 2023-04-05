@@ -1,0 +1,9 @@
+<div style="display: flex; align-items: center; border: 1px solid black; padding: 5px; max-width: 18%;">
+    <form [formGroup]="form" (ngSubmit)="search()">
+        <h1>Search Movie Reviews</h1>
+           Movie name: <input size="30" formControlName="movieName"/>
+           <br>
+           <br>
+        <button style="float: right;" type="submit" [disabled]="formInvalid()">Search</button>
+    </form>
+</div>
