@@ -21,7 +21,6 @@ export class MovieService {
     lastValueFrom(this.httpClient
         .get<Movies[]>(this.API_URI, {params: params, headers: headers})).then
         (result=> console.log(result))
-        //http://localhost:8080/api/search?query=fury
         // );
   }
 

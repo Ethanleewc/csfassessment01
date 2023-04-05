@@ -19,7 +19,7 @@ public class MovieRepository {
 	// TODO: Task 5
 	// You may modify the parameter but not the return type
 	// Write the native mongo database query in the comment below
-	//db.getCollection("COMMENTS_COL").count({ "title": title })
+	//db.getCollection("comments").count({ "title": title })
 	public int countComments(String title) {
 		int count = 0;
 
